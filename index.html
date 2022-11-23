@@ -6,13 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fifth live Coding Chalage</title>
     <style>
-
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      div {
+        margin-top: 10px;
+      }
+      #Name {
+        margin-left: 100px;
+      }
+      #testMark {
+        margin-left: 40px;
+      }
+      #PreFinalmark {
+        margin-left: 46px;
+      }
+      #finalMark {
+        margin-left: 62px;
+      }
+      .ulel {
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      li {
+        list-style: none;
+      }
+      samp {
+        font-size: 15px;
+      }
+      .main {
+        margin-top: 50px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: antiquewhite;
+      }
+      button {
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
-
-    <script>
-        
-    </script>
+    <div class="marks">
+      <div class="name">
+        <label for="name">Name</label>
+        <input type="text" id="Name" />
+      </div>
+      <div class="unit">
+        <label for="testmark">Unit Test Mark</label>
+        <input type="number" id="testMark" />
+      </div>
+      <div class="pre_final">
+        <label for="prefinal">Pre final mark</label>
+        <input type="number" id="PreFinalmark" />
+      </div>
+      <div class="final_mark">
+        <label for="finel" id="final_mark">Finel Mark</label>
+        <input type="number" id="finalMark" />
+      </div>
+    </div>
+    <button id="submit">submit</button>
+    <div id="main"></div>
+    <script src="/scrit.js"></script>
   </body>
 </html>
