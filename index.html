@@ -28,7 +28,8 @@
         margin-left: 62px;
       }
       .ulel {
-        background-color: aqua;
+        border-style: solid;
+        border-width: 1px;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -46,10 +47,19 @@
         align-items: center;
         flex-direction: column;
         justify-content: space-between;
-        background-color: antiquewhite;
+        border-style: solid;
+        border-width: 1px;
       }
       button {
         margin-top: 20px;
+      }
+      p {
+        display: flex;
+        justify-content: space-around;
+      }
+      .result {
+        font-size: 30px;
+        color: red;
       }
     </style>
   </head>
@@ -73,6 +83,7 @@
       </div>
     </div>
     <button id="submit">submit</button>
+    <div id="result"></div>
     <div id="main"></div>
     <script src="/scrit.js"></script>
   </body>

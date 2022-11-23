@@ -1,34 +1,69 @@
 `use strict`;
 
-const Name = document.getElementById(`Name`);
+const NameEl = document.getElementById(`Name`);
 const testMarkEl = document.getElementById(`testMark`);
 const PreFinalmarkEl = document.getElementById(`PreFinalmark`);
 const finalMarkEl = document.getElementById(`finalMark`);
 const submitEl = document.getElementById(`submit`);
 const mainBox = document.getElementById("main");
+const result = document.getElementById(`result`)
 
-sum = 5
+let times = 5 
+let sum = 0
+let studentprofile =[]
 
-
-let newmark = []
-
-function displaystudentname(){
-        ulEl = document.createElement('div');
+function displayUi(){
+        
+        newul = document.createElement('div');
         mainBox.classList.add('main')
-        mainBox.appendChild(ulEl)
-        ulEl.classList.add('ulel')
-        let testavarage = Number(testMarkEl.value ) +  Number(PreFinalmarkEl.value ) + Number(finalMarkEl.value )
-        total = Math.floor(testavarage / 10);
-        newmark.push[total]
-        ulEl.innerHTML = `<p>name; ${Name.value}</p><samp>avrage ${total}</samp>`
-        sum = sum -1 ;
-}
-console.log(newmark)
+        mainBox.appendChild(newul)
+        newul.classList.add('ulel')
+        liel = document.createElement('li')
+        newul.appendChild(liel)
+        studentprofile.forEach(elem =>{
+            liel.innerHTML =`<p>Name ${elem.Name}</p>
+            <p>Test Mark ${elem.testmark}</p>
+            <p>preFinal Mark ${elem.prefinal}</p>
+            <p>Finel Mark ${elem.finalMark}</p>
+            <p>total Mark ${elem.total()}</p>`
+            
 
-
-
-submitEl.addEventListener("click", () => {
-    if(sum !== 0){
-        displaystudentname()
+        })
+        times = times-1
     }
-});
+
+
+
+submitEl.addEventListener('click',()=>{
+    if(NameEl !== '' || !testMarkEl || !PreFinalmarkEl || !finalMarkEl){
+        if(times !== 0){
+            let profile = {
+                Name : NameEl.value,
+                testmark : Number(testMarkEl.value),
+                prefinal : Number(PreFinalmarkEl.value),
+                finalMark : Number(finalMarkEl.value),
+                total : function(){
+                    return this.testmark + this.prefinal + this.finalMark
+                }
+            }
+            studentprofile.push(profile)
+            displayUi()
+
+        }else{
+            studentprofile.forEach(elem =>{
+                if(elem.total() > sum){
+                    sum = elem.total()
+                    result.innerHTML = `<h1 class='result'>name ${elem.Name} and total ${sum} is the hight mark</h1> `
+                }
+            })
+
+        }
+        
+    }else{
+        alert('enter valide input')
+    }
+    // NameEl.value = null;
+    // testMarkEl.value = null;
+    // PreFinalmarkEl.value = null;
+    // finalMarkEl.value = null;
+})
